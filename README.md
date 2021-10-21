@@ -1,7 +1,7 @@
-# Getting Started with Create React App
+# Appointment planner
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+An app which kan add a new contact and make a list. By using the contact list, it can add a new appointment to a appointment list.
+This project was made for learning React while I studyied Codecademy full-stack engineer skill path course.
 ## Available Scripts
 
 In the project directory, you can run:
