@@ -23,6 +23,12 @@ function App() {
     ])
   }
 
+  const removeContact = (indexToRemove) => {
+    contacts.filter((contact, index) => contact.index !== indexToRemove)
+  }
+
+ 
+
   const addAppointment = (title, contact, date, time) => {
     setAppointments([
       ...appointments, {
@@ -32,6 +38,10 @@ function App() {
         time: time,
       }
     ])
+  }
+
+  const removeAppointment = (indexToRemove) => {
+    appointments.filter((appointment, index) => appointment.index !== indexToRemove)
   }
 
 
@@ -53,13 +63,15 @@ function App() {
           <Route path={ROUTES.CONTACTS}>
             <ContactsPage
             contacts={contacts} 
-            addContact={addContact}/>
+            addContact={addContact}
+            removeContact={removeContact}/>
           </Route>
           <Route path={ROUTES.APPOINTMENTS}>
             <AppointmentsPage
             appointments={appointments}
             contacts={contacts} 
-            addAppointment={addAppointment}/>
+            addAppointment={addAppointment}
+            removeAppointment={removeAppointment}/>
           </Route>
         </Switch>
       </main>

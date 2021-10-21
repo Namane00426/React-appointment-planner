@@ -6,12 +6,14 @@ export const AppointmentsPage = ({
   appointments,
   contacts, 
   addAppointment,
+  removeAppointment,
 }) => {
  
    const [title, setTitle] = useState('');
    const [contact, setContact] = useState('');
    const [date, setDate] = useState('');
    const [time, setTime] = useState('');
+   const [rmIndex, setRmIndex] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,8 +23,13 @@ export const AppointmentsPage = ({
     setContact('');
     setDate('');
     setTime('');
-   
   };
+
+  const rmHandleSubmit = (index) => {
+    const rmIndex = index;
+    removeAppointment(rmIndex);
+    setRmIndex('');
+  }
 
   return (
     <div>
@@ -46,6 +53,8 @@ export const AppointmentsPage = ({
         <h2>Appointments</h2>
         <TileList
         tiles={appointments}
+        rmIndex={rmIndex}
+        rmHandleSubmit={rmHandleSubmit}
         />
       </section>
     </div>

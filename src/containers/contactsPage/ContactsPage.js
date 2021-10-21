@@ -4,14 +4,15 @@ import {TileList} from '../../components/tileList/TileList'
 
 export const ContactsPage = ({
   contacts,
-  addContact
+  addContact,
+  removeContact
 }) => {
   
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [duplicate, setDuplicate] = useState(false);
-
+  const [rmIndex, setRmIndex] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,6 +22,12 @@ export const ContactsPage = ({
     setPhone('');
     setEmail('');
   };
+
+  const rmHandleSubmit = (index) => {
+    const rmIndex = index;
+    removeContact(rmIndex);
+    setRmIndex('');
+  }
 
   useEffect(() => {
     const isDuplicate = () => {
@@ -58,7 +65,9 @@ export const ContactsPage = ({
       <section>
         <h2>Contacts</h2>
         <TileList
-        tiles={contacts}/>
+        tiles={contacts}
+        rmIndex={rmIndex}
+        rmHandleSubmit={rmHandleSubmit}/>
       </section>
     </div>
   );
