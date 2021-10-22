@@ -66,7 +66,6 @@ export const ContactsPage = ({
         <h2>Contacts</h2>
         <TileList
         tiles={contacts}
-        rmIndex={rmIndex}
         rmHandleSubmit={rmHandleSubmit}/>
       </section>
     </div>

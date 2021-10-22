@@ -2,9 +2,13 @@ import React from "react";
 
 export const Tile = ({
   value,
-  rmIndex,
   rmHandleSubmit
 }) => {
+
+  const rmSubmit = (e) => {
+    rmHandleSubmit(e.target.key);
+  }
+
   return (
     <div className="tile-container">
       {
@@ -13,8 +17,8 @@ export const Tile = ({
         {data}
         </p>
         )}
-        <button type='button'
-        onClick={rmHandleSubmit(rmIndex)}>X</button>
+        <button type='button' key={value.index}
+        onClick={rmSubmit}>X</button>
     </div>
   );
 };
