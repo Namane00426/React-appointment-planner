@@ -5,7 +5,7 @@ import { AppointmentsPage } from "../src/containers/appointmentsPage/Appointment
 import { ContactsPage } from "../src/containers/contactsPage/ContactsPage";
 
 function App() {
-  const [ contacts, setContacts ] = useState([]);
+  const [ contacts, setContacts ] = useState([{name: 'Sample Nanase.E', phone: '333 111 2222', email:'nanase@contacts.com'}]);
   const [ appointments, setAppointments ] = useState([]); 
 
   const ROUTES = {

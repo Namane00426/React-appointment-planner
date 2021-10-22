@@ -100,8 +100,14 @@ select {
   font-size: 12px;
   max-height: min-content;
   max-width: 30px;
-  margin-left: 89%;
+  margin-left: 85%;
+  border-radius: 2px;
   background-color: orangered;
   border: none;
+  color: white;
+}
+
+.tile-container > button[type="button"]:hover {
+  background-color: black;
   color: white;
 }
