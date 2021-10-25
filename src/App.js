@@ -52,7 +52,7 @@ function App() {
   }
 
   const removeAppointment = (removeId) => {
-    const newAppointments= appointments.filter((appointment) => appointment.title !== removeId);
+    const newAppointments = appointments.filter((appointment) => appointment.title !== removeId);
 
     setAppointments(newAppointments);
   }
