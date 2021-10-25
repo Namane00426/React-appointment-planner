@@ -1,23 +1,31 @@
-import React from "react";
+import React  from "react";
+
 
 export const Tile = ({
-  value,
-  rmHandleSubmit
+  tile,
+  id,
+  rmHandleSubmit,
+  setRemoveId,
+  removeId
 }) => {
 
   const rmSubmit = (e) => {
-    rmHandleSubmit(e.target.key);
+    setRemoveId(id);
+    
+    rmHandleSubmit(removeId);
   }
+
+  
 
   return (
     <div className="tile-container">
       {
-        Object.values(value).map((data, index) => 
-        <p key={index} className={ `${index === 0 ? "tile-title": "" } tile`}>
+        Object.values(tile).map((data, index) => 
+        <p id={id} key={index} className={ `${index === 0 ? "tile-title": "" } tile`}>
         {data}
         </p>
         )}
-        <button type='button' key={value.index}
+        <button type='button' id={id}
         onClick={rmSubmit}>X</button>
     </div>
   );

@@ -26,7 +26,6 @@ export const AppointmentForm = ({
 
   return (
     <form onSubmit={handleSubmit}>
-    AppointmentForm
       <input 
       name='title'
       type='text'

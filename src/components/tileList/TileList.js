@@ -2,17 +2,23 @@ import React from "react";
 import {Tile} from '../tile/Tile'
 
 export const TileList = (
- {tiles,
+ {
+  tiles,
   rmHandleSubmit,
+  setRemoveId,
+  removeId
 }
 ) => {
 
   return (
     <div>
-     {tiles.map((value, index) => (
+     {tiles.map((tile, index) => (
       <Tile 
-      key={index} value={value} 
+      key={index} tile={tile} id={tile.name || tile.title}
       rmHandleSubmit={rmHandleSubmit}
+      tiles={tiles}
+      setRemoveId={setRemoveId}
+      removeId={removeId}
       />
       ))}
     </div>

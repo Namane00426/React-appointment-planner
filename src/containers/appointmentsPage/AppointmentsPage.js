@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {AppointmentForm} from '../../components/appointmentForm/AppointmentForm'
 import {TileList} from '../../components/tileList/TileList'
 
@@ -6,14 +6,17 @@ export const AppointmentsPage = ({
   appointments,
   contacts, 
   addAppointment,
+  removeId,
+  setRemoveId,
   removeAppointment,
+  duplicate,
+  setDuplicate
 }) => {
  
    const [title, setTitle] = useState('');
    const [contact, setContact] = useState('');
    const [date, setDate] = useState('');
    const [time, setTime] = useState('');
-   const [rmIndex, setRmIndex] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,11 +28,29 @@ export const AppointmentsPage = ({
     setTime('');
   };
 
-  const rmHandleSubmit = (index) => {
-    const rmIndex = index;
-    removeAppointment(rmIndex);
-    setRmIndex('');
+  useEffect(() => {
+    const isDuplicate = () => {
+      const found = appointments.find((appointment) => appointment.title === title)
+      if(found !== undefined){
+        return true;
+        }
+        return false;
+      }
+
+      if(isDuplicate()){
+        setDuplicate(true);
+        alert('The same title exists already! Enter some different title.');
+        setTitle('');
+      } else {
+        setDuplicate(false);
+      }
+
+  }, [title, appointments, duplicate, setDuplicate])
+
+  const rmHandleSubmit = (removeId) => {
+    removeAppointment(removeId);
   }
+
 
   return (
     <div>
@@ -53,8 +74,9 @@ export const AppointmentsPage = ({
         <h2>Appointments</h2>
         <TileList
         tiles={appointments}
-        rmIndex={rmIndex}
+        setRemoveId={setRemoveId}
         rmHandleSubmit={rmHandleSubmit}
+        removeId={removeId}
         />
       </section>
     </div>

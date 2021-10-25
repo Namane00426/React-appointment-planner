@@ -5,14 +5,17 @@ import {TileList} from '../../components/tileList/TileList'
 export const ContactsPage = ({
   contacts,
   addContact,
-  removeContact
+  removeContact,
+  setRemoveId,
+  removeId,
+  duplicate,
+  setDuplicate
 }) => {
   
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
-  const [duplicate, setDuplicate] = useState(false);
-  const [rmIndex, setRmIndex] = useState('');
+ 
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,11 +26,10 @@ export const ContactsPage = ({
     setEmail('');
   };
 
-  const rmHandleSubmit = (index) => {
-    const rmIndex = index;
-    removeContact(rmIndex);
-    setRmIndex('');
+  const rmHandleSubmit = (removeId) => {
+   removeContact(removeId);
   }
+
 
   useEffect(() => {
     const isDuplicate = () => {
@@ -40,11 +42,13 @@ export const ContactsPage = ({
 
       if(isDuplicate()){
         setDuplicate(true);
+        alert('The same name exists already! Please enter  aother name.');
+        setName('');
       } else {
         setDuplicate(false);
       }
 
-  }, [name, contacts, duplicate])
+  }, [name, contacts, duplicate, setDuplicate])
 
   return (
     <div>
@@ -66,7 +70,10 @@ export const ContactsPage = ({
         <h2>Contacts</h2>
         <TileList
         tiles={contacts}
-        rmHandleSubmit={rmHandleSubmit}/>
+        rmHandleSubmit={rmHandleSubmit}
+        setRemoveId={setRemoveId}
+        removeId={removeId}
+        />
       </section>
     </div>
   );
