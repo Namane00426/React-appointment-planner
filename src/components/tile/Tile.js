@@ -9,7 +9,7 @@ export const Tile = ({
   removeId
 }) => {
 
-  const rmSubmit = (e) => {
+  const onSubmit = (e) => {
     setRemoveId(id);
     
     rmHandleSubmit(removeId);
@@ -26,7 +26,7 @@ export const Tile = ({
         </p>
         )}
         <button type='button' id={id}
-        onClick={rmSubmit}>X</button>
+        onClick={onSubmit}>X</button>
     </div>
   );
 };
