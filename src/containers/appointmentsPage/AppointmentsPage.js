@@ -47,9 +47,8 @@ export const AppointmentsPage = ({
 
   }, [title, appointments, duplicate, setDuplicate])
 
-  const rmHandleSubmit = (e) => {
-    e.preventDefault();
-    
+  const rmHandleSubmit = (removeId) => {
+
     removeAppointment(removeId);
   }
 

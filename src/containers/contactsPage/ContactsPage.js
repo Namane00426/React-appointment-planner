@@ -26,9 +26,8 @@ export const ContactsPage = ({
     setEmail('');
   };
 
-  const rmHandleSubmit = (e) => {
-    e.preventDefault();
-    
+  const rmHandleSubmit = (removeId) => {
+
    removeContact(removeId);
   }
 
