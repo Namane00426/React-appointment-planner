@@ -26,8 +26,8 @@ export const ContactForm = ({
       type='text'
       name='phone'
       value={phone}
-      placeholder='Enter a phone: 123 456 7890'
-      pattern="^\d{3}\d{3}\d{4}$"
+      placeholder='Enter a phone: 123-456-7890'
+      pattern="\d{2,4}-?\d{2,4}-?\d{3,4}"
       required
       onChange={(e) => setPhone(e.target.value)}
       />
