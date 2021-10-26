@@ -10,6 +10,10 @@ export const ContactForm = ({
   handleSubmit
 }) => {
 
+  // const convertTelNr = (str) => {
+  //   str.replace()
+  //   return newStr;
+  // }
 
   return (
     <form onSubmit={handleSubmit}>
@@ -26,7 +30,7 @@ export const ContactForm = ({
       type='text'
       name='phone'
       value={phone}
-      placeholder='Enter a phone: 123-456-7890'
+      placeholder='Enter a phone: 123 456 7890'
       pattern="\d{2,4}\s?\d{2,4}\s?\d{3,4}"
       required
       onChange={(e) => setPhone(e.target.value)}
