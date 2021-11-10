@@ -12,7 +12,7 @@ export const Tile = ({
   const onSubmit = (e) => {
     setRemoveId(id);
     
-    rmHandleSubmit(removeId);
+    rmHandleSubmit(id);
   }
 
   
